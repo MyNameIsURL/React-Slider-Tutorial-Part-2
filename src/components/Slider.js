@@ -47,10 +47,14 @@ const Styles = styled.div`
 
 export default class Slider extends React.Component {
   state = {
-    value: 50
+    value: 0
   }
 
-  handleOnChange = (e) => this.setState({ value: e.target.value })
+  handleOnChange = (e) => {
+    const { value } = e.target;
+    this.props.handleUpdateColor(this.props.hexColor, value);
+    this.setState({ value });
+  }
 
   render() {
     return (
